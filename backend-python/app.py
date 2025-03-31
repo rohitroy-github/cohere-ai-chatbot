@@ -24,15 +24,10 @@ def chat_response(data: Prompt):
     response = co.chat(
         model="command-a-03-2025",
         messages=[{"role": "user", "content": data.prompt}]
-    )
+    )   
 
-    # Extract text content properly
-    if response.message and response.message.content:
-        bot_reply = response.message.content[0].text
-    else:
-        bot_reply = "Sorry, I couldn't generate a response."
-
-    return {"response": bot_reply}
+    # Return the entire response JSON including `id`
+    return response.dict()  # Converts response object to a dictionary
 
 
 # import cohere

@@ -3,7 +3,6 @@ import json  # For handling JSON data
 import os  # To check if the file exists
 from datetime import datetime  # Import datetime for timestamps
 
-
 SERVER_URL = "http://127.0.0.1:8000/chat"
 LOG_FILE = "chat_history.json"  # JSON file to store chat history
 
@@ -30,7 +29,7 @@ while True:
         if chat_history:
             print("\n--- Chat History (Last 5 Messages) ---")
             for chat in chat_history[-5:]:  # Show last 5 messages
-                print(f"You: {chat['user']}\nBot: {chat['bot']}\n")
+                print(f"ID: {chat['id']}\nYou: {chat['user']}\nBot: {chat['bot']}\n")
             print("--------------------------------------\n")
         else:
             print("No chat history available.")
@@ -40,11 +39,18 @@ while True:
         response = requests.post(SERVER_URL, json={"prompt": user_input})
 
         if response.status_code == 200:
-            bot_response = response.json()["response"]
-            print("Bot:", bot_response)  # Print chatbot response
+            response_data = response.json()
+            bot_response_text = response_data["message"]["content"][0]["text"]
+            bot_response_id = response_data["id"]
+            print("Bot:", bot_response_text)
 
             # Append the new conversation to history
-            chat_history.append({"user": user_input, "bot": bot_response, "timestamp": datetime.now().isoformat(),})
+            chat_history.append({
+                "id": bot_response_id,
+                "user": user_input,
+                "bot": bot_response_text,
+                "timestamp": datetime.now().isoformat(),
+            })
 
             # Write the updated history to the JSON file
             with open(LOG_FILE, "w", encoding="utf-8") as file:
