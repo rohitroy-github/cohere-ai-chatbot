@@ -1,38 +1,40 @@
 [
     {
-        "id": "98a2ca1e-9890-432c-8ff5-9cef8266181f",
-        "user": "What's a .py file ?",
-        "bot": "A **.py file** is a text file that contains Python code. Python is a high-level, interpreted programming language, and `.py` is the standard file extension used to denote Python scripts or modules. Here’s what you need to know about `.py` files:\n\n - **Purpose**: `.py` files are used to store Python code, which can include functions, classes, variables, and executable scripts.\n - **Execution**: To run a `.py` file, you need a Python interpreter installed on your system. You can execute the file by running the command `python filename.py` in the terminal or command prompt.\n - **Structure**: The contents of a `.py` file are written in the Python programming language. This can range from simple scripts to complex programs or modules that can be imported into other Python scripts.\n - **Portability**: Python code in `.py` files is platform-independent, meaning it can run on any system with a compatible Python interpreter, regardless of the operating system (Windows, macOS, Linux, etc.).\n - **Examples**:\n   - A simple script: `print(\"Hello, World!\")`\n   - A module with functions:\n     ```python\n     def greet(name):\n         return f\"Hello, {name}!\"\n     ```\n\nIn summary, a `.py` file is a container for Python code, allowing you to write, save, and execute programs or modules in the Python language.",
-        "timestamp": "2025-03-31T23:36:32.601781"
+        "role": "user",
+        "content": "Hello, how are you?"
     },
     {
-        "id": "bdcfc648-5cb3-4900-99f3-3f75f6fa017e",
-        "user": "Hi ! ",
-        "bot": "Hello! How can I assist you today? Whether you have questions, need help with a task, or just want to chat, I'm here for you. What's on your mind?",
-        "timestamp": "2025-04-01T11:03:39.595107"
+        "role": "assistant",
+        "content": "I'm doing great, thank you for asking! How can I assist you today?"
     },
     {
-        "id": "92241465-fd30-4265-a3bc-c20c4b8ca7b4",
-        "user": "Who's Albert Einstein ?",
-        "bot": "Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is widely regarded as one of the most influential scientists of the 20th century. He is best known for developing the **theory of relativity**, which revolutionized our understanding of space, time, gravity, and the universe. Here are some key aspects of his life and work:\n\n### **Major Contributions:**\n1. **Theory of Relativity:**\n   - **Special Relativity (1905):** Introduced concepts like the equivalence of mass and energy (famously expressed as \\( E = mc^2 \\)), time dilation, and length contraction.\n   - **General Relativity (1915):** Explained gravity as the curvature of spacetime caused by mass and energy.\n\n2. **Photoelectric Effect (1905):** Explained how light behaves as both a wave and a particle, a foundational idea in quantum mechanics. This work earned him the **1921 Nobel Prize in Physics**.\n\n3. **Cosmological Constant:** Proposed as part of his general relativity theory, though he later called it his \"biggest blunder.\" It has since been revived in modern cosmology to explain dark energy.\n\n4. **Bose-Einstein Statistics:** Worked with Indian physicist Satyendra Nath Bose to describe the behavior of bosons, leading to the concept of Bose-Einstein condensates.\n\n### **Early Life and Education:**\n- Born in Ulm, Germany, to Hermann and Pauline Einstein.\n- Struggled in school initially but showed a passion for mathematics and physics.\n- Graduated from the Swiss Federal Polytechnic in Zurich (1900) and worked as a patent clerk in Bern, Switzerland, where he developed many of his groundbreaking ideas.\n\n### **Later Life and Legacy:**\n- Emigrated to the United States in 1933 to escape Nazi Germany and joined the Institute for Advanced Study in Princeton, New Jersey.\n- Advocated for civil rights, pacifism, and nuclear disarmament, famously writing to President Franklin D. Roosevelt in 1939 about the potential development of atomic weapons.\n- Died in Princeton in 1955, leaving behind a legacy as a scientific genius and a symbol of intellectual curiosity.\n\nEinstein's work not only transformed physics but also had profound implications for philosophy, technology, and our understanding of the cosmos. His iconic equation \\( E = mc^2 \\) remains one of the most famous formulas in science.",
-        "timestamp": "2025-04-01T11:24:27.983859"
+        "id": "a0599989-745d-4002-8d48-192457f519f9",
+        "user": "hi ? ",
+        "bot": "Hello! How can I assist you today?",
+        "timestamp": "2025-04-01T18:41:09.812524"
     },
     {
-        "id": "77383d4a-d275-4510-9a57-d8f1170f0fb8",
-        "user": "Who's Albert Einstein ?",
-        "bot": "Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is widely regarded as one of the most influential scientists of the 20th century. He is best known for developing the **theory of relativity**, which revolutionized our understanding of space, time, gravity, and the universe. Here are some key aspects of his life and work:\n\n### **Major Contributions:**\n1. **Theory of Relativity:**\n   - **Special Relativity (1905):** Introduced the famous equation \\( E = mc^2 \\), which shows the equivalence of mass and energy. It also established that the laws of physics are the same for all observers in uniform motion relative to each other.\n   - **General Relativity (1915):** Proposed that gravity is the curvature of spacetime caused by mass and energy. This theory successfully explained phenomena like the bending of light around massive objects and the precession of Mercury's orbit.\n\n2. **Photoelectric Effect (1905):** Explained how light interacts with matter, a foundational concept in quantum mechanics. This work earned him the **1921 Nobel Prize in Physics**.\n\n3. **Contributions to Quantum Theory:** Though skeptical of its probabilistic nature, Einstein's work laid the groundwork for quantum mechanics, including his explanation of the photoelectric effect and his debates with physicists like Niels Bohr.\n\n### **Early Life and Education:**\n- Born in Ulm, Germany, to Hermann and Pauline Einstein.\n- Moved to Switzerland in 1895, where he studied at the Swiss Federal Polytechnic (ETH Zurich).\n- Worked as a patent clerk in Bern, Switzerland, from 1902 to 1909, during which he published his groundbreaking papers in 1905 (known as the **Annus Mirabilis** or \"Miracle Year\").\n\n### **Later Career:**\n- Became a professor at the University of Zurich and later at the University of Berlin.\n- Emigrated to the United States in 1933 to escape Nazi Germany and joined the Institute for Advanced Study in Princeton, New Jersey.\n- Advocated for civil rights, pacifism, and the responsible use of science.\n\n### **Legacy:**\n- His theories transformed physics and continue to shape modern science, technology, and philosophy.\n- Iconic figure known for his humility, curiosity, and commitment to learning.\n- His name has become synonymous with genius, and his image is one of the most recognizable in history.\n\nEinstein's work not only advanced science but also profoundly influenced how we perceive the universe and our place in it.",
-        "timestamp": "2025-04-01T11:34:18.229041"
+        "id": "4576b150-20db-4e72-847c-00dbc533bc59",
+        "user": "what's 2 + 2 ? ",
+        "bot": "2 + 2 equals 4.",
+        "timestamp": "2025-04-01T18:41:17.829341"
     },
     {
-        "id": "b25208cf-ed3c-43cf-b681-f36af1a44e75",
-        "user": "When was he born ?",
-        "bot": "Albert Einstein was born on **March 14, 1879**, in Ulm, Kingdom of Württemberg, German Empire (now Baden-Württemberg, Germany).",
-        "timestamp": "2025-04-01T11:34:27.455550"
+        "id": "1775a864-8432-4a61-9d65-46aa65a83b10",
+        "user": "what's 4 + 4 ? ",
+        "bot": "4 + 4 equals 8.",
+        "timestamp": "2025-04-01T18:41:30.969417"
     },
     {
-        "id": "7d1a11a1-2644-4766-ae36-20c91c93953a",
-        "user": "What did he make ?",
-        "bot": "Albert Einstein is renowned for his groundbreaking theoretical contributions to physics, rather than for creating physical inventions. His work laid the foundation for many technological advancements, but he himself did not \"make\" devices or machines. Here are his most significant contributions:\n\n### **Key Theoretical Achievements:**\n1. **Theory of Relativity:**\n   - **Special Relativity (1905):** Explained how space and time are interwoven (spacetime) and introduced the famous equation \\( E = mc^2 \\), showing the equivalence of mass and energy.\n   - **General Relativity (1915):** Described gravity as the curvature of spacetime caused by mass and energy, revolutionizing our understanding of the universe.\n\n2. **Explanation of the Photoelectric Effect (1905):**\n   - Showed that light behaves as both a wave and a particle (photon), a cornerstone of quantum mechanics. This work earned him the **1921 Nobel Prize in Physics**.\n\n3. **Contributions to Quantum Theory:**\n   - Though skeptical of its probabilistic nature, Einstein's work on the photoelectric effect and his debates with physicists like Niels Bohr were foundational to quantum mechanics.\n\n4. **Bose-Einstein Statistics (1924):**\n   - Worked with Indian physicist Satyendra Nath Bose to predict the existence of **Bose-Einstein condensates**, a new state of matter.\n\n5. **Unified Field Theory:**\n   - Spent his later years attempting to unify the fundamental forces of physics into a single theory, though this work remains incomplete.\n\n### **Indirect Contributions to Inventions:**\nWhile Einstein didn't invent devices directly, his theories enabled or inspired many technological advancements, such as:\n- **Nuclear Energy:** \\( E = mc^2 \\) laid the theoretical basis for nuclear power and atomic bombs.\n- **Lasers and Semiconductors:** His work on the photoelectric effect contributed to the development of modern electronics.\n- **GPS Technology:** General relativity is essential for the precise timekeeping required by GPS systems.\n\nIn summary, Einstein's \"creations\" were primarily revolutionary ideas and theories that reshaped science and technology, rather than physical objects.",
-        "timestamp": "2025-04-01T11:34:43.351785"
+        "id": "518a1f2e-e54d-4e26-9695-2a819643c69c",
+        "user": "what's the final amount ? ",
+        "bot": "The **final amount** mentioned in the invoice is **₹319.00**. This is the total amount to be paid, including taxes, as indicated in the \"Total Amount\" section of the invoice. \n\nBreakdown:\n- **Taxable Amount**: ₹270.34  \n- **CGST (9%)**: ₹24.33  \n- **SGST (9%)**: ₹24.33  \n- **Total Amount**: ₹319.00  \n\nThe total amount in words is also mentioned as **\"Three Hundred Nineteen Rupees Only\"**.",
+        "timestamp": "2025-04-01T18:56:26.831276"
+    },
+    {
+        "id": "a240656c-332a-40d5-ad5b-0e3748b72ca4",
+        "user": "hi ? ",
+        "bot": "Hello! How can I assist you today?",
+        "timestamp": "2025-04-01T18:58:07.169124"
     }
 ]

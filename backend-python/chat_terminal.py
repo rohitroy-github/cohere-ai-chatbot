@@ -16,7 +16,28 @@ if os.path.exists(LOG_FILE):
 else:
     chat_history = []  # Initialize an empty list for new chats
 
-print("Chatbot (type 'exit' to quit, type 'history' to view past 5 messages)")
+def clear_history():
+    #Clears the chat history and resets the log file without deleting it.
+    global chat_history
+    chat_history = []  # Reset the history list
+
+    # Write the empty list to the JSON file to clear the history
+    with open(LOG_FILE, "w", encoding="utf-8") as file:
+        json.dump(chat_history, file, indent=4, ensure_ascii=False)
+
+    print("Chat history cleared successfully.")
+
+def show_history():
+    """Displays the last 5 messages from chat history."""
+    if chat_history:
+        print("\n--- Chat History (Last 5 Messages) ---")
+        for chat in chat_history[-5:]:  # Show last 5 messages
+            print(f"ID: {chat['id']}\nYou: {chat['user']}\nBot: {chat['bot']}\n")
+        print("--------------------------------------\n")
+    else:
+        print("No chat history available.")
+
+print("Chatbot (type 'exit' to quit, type 'history' to view past 5 messages, type 'clear' to clear chat history)")
 
 while True:
     user_input = input("You: ")
@@ -26,14 +47,12 @@ while True:
         break  # Exit loop if the user types 'exit'
 
     if user_input.lower() == "history":
-        if chat_history:
-            print("\n--- Chat History (Last 5 Messages) ---")
-            for chat in chat_history[-5:]:  # Show last 5 messages
-                print(f"ID: {chat['id']}\nYou: {chat['user']}\nBot: {chat['bot']}\n")
-            print("--------------------------------------\n")
-        else:
-            print("No chat history available.")
+        show_history()
         continue  # Skip API request for "history" command
+
+    if user_input.lower() == "clear":
+        clear_history()
+        continue  # Skip API request for "clear" command
 
     try:
         response = requests.post(SERVER_URL, json={"prompt": user_input})
