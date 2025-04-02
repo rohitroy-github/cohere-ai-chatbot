@@ -5,6 +5,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from io import BytesIO  # Handle in-memory file processing
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load API key from .env file
 load_dotenv()
@@ -15,6 +16,15 @@ co = cohere.ClientV2(COHERE_API_KEY)
 
 # Initialize FastAPI app
 app = FastAPI()
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to your frontend URL for better security
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Store conversation history and PDF content globally
 chat_history = []  # Keeps last 5 messages
