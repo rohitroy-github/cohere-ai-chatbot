@@ -61,7 +61,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 
     pdf_content = extracted_text  # Store extracted text
 
-    return {"message": "PDF uploaded successfully", "extracted_text": pdf_content[:500]}  # Show first 500 chars
+    return {"message": "PDF uploaded successfully", "extracted_text": pdf_content[:100]}  # Show first 100 chars
 
 # API route for chatbot
 @app.post("/chat")
@@ -76,7 +76,7 @@ def chat_response(data: Prompt):
         chat_history.pop(0)  # Remove oldest message
 
     # Include extracted PDF content in the context if available
-    context_messages = [{"role": "system", "content": "Here is relevant document information:\n" + pdf_content}] if pdf_content else []
+    context_messages = [{"role": "user", "content": "Here is relevant document information:\n" + pdf_content}] if pdf_content else []
     context_messages.extend(chat_history)
 
     response = co.chat(

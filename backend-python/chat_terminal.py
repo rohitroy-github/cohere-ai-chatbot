@@ -55,12 +55,16 @@ while True:
         continue  # Skip API request for "clear" command
 
     try:
-        response = requests.post(SERVER_URL, json={"prompt": user_input})
+        # response = requests.post(SERVER_URL, json={"prompt": user_input})
+        response = requests.post(SERVER_URL, json={"prompt": user_input}, timeout=10)
 
         if response.status_code == 200:
             response_data = response.json()
             bot_response_text = response_data["message"]["content"][0]["text"]
             bot_response_id = response_data["id"]
+
+            print("System: Data sent successfully") # test_code
+            
             print("Bot:", bot_response_text)
 
             # Append the new conversation to history
@@ -81,3 +85,7 @@ while True:
     except requests.exceptions.RequestException as e:
         print("Connection error:", e)  # Handle network errors
         break
+
+    except requests.exceptions.ConnectionError:
+        print("Server is down. Please start FastAPI first.")
+        break  # Exit the loop if the server is not running
