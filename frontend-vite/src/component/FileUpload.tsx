@@ -19,11 +19,18 @@ const FileUpload: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-2">
-      <input type="file" accept="application/pdf" onChange={handleFileChange} className="border p-2" />
-      <button onClick={handleUpload} className="bg-blue-500 text-white px-4 py-2 rounded-md">
-        Upload PDF
-      </button>
+    <div className="flex items-center space-x-2">
+      <input type="file" accept="application/pdf" onChange={handleFileChange} className="hidden" id="file-upload" />
+      
+      <label htmlFor="file-upload" className="bg-gray-700 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-600">
+        📄 Upload PDF
+      </label>
+
+      {selectedFile && (
+        <button onClick={handleUpload} className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-400">
+          Upload
+        </button>
+      )}
     </div>
   );
 };
