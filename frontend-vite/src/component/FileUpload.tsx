@@ -10,6 +10,13 @@ const FileUpload: React.FC = () => {
     }
   };
 
+  const handleRemoveFile = () => {
+    setSelectedFile(null);
+    // Reset file input value to allow re-selecting the same file
+    const fileInput = document.getElementById("file-upload") as HTMLInputElement;
+    if (fileInput) fileInput.value = "";
+  };
+
   const handleUpload = async () => {
     if (selectedFile) {
       const response = await uploadPDF(selectedFile);
@@ -23,14 +30,15 @@ const FileUpload: React.FC = () => {
       <input type="file" accept="application/pdf" onChange={handleFileChange} className="hidden" id="file-upload" />
       
       <label htmlFor="file-upload" className="bg-gray-700 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-600">
-        📄 Upload PDF
-      </label>
-
-      {selectedFile && (
-        <button onClick={handleUpload} className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-400">
-          Upload
-        </button>
+        {selectedFile ? selectedFile.name : "📄 Upload PDF"}
+        {selectedFile && (
+        <>
+          <button onClick={handleRemoveFile} className="ml-2 text-red-400 hover:text-red-300">
+            ❌
+          </button>
+        </>
       )}
+      </label>
     </div>
   );
 };

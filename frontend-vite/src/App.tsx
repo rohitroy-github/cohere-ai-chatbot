@@ -5,7 +5,7 @@ import "./App.css"
 
 const App: React.FC = () => {
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100 font-montserrat">
+    <div className="flex justify-center items-center h-screen font-montserrat">
       <ChatBox />
     </div>
   );
