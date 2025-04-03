@@ -2,6 +2,7 @@
 
 import React from "react";
 import ChatBox from "./component/ChatBox";
+import './index.css'
 
 const App: React.FC = () => {
   return (
