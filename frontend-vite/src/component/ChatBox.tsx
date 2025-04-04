@@ -18,7 +18,7 @@ const Chatbox: React.FC = () => {
   const handleUpload = async () => {
     if (selectedFile) {
       await uploadPDF(selectedFile);
-      console.log(">>> file uploaded:", selectedFile);
+      // console.log(">>> file uploaded:", selectedFile);
       setSelectedFile(null);
     }
   };
@@ -41,22 +41,16 @@ const Chatbox: React.FC = () => {
       try {
         await Promise.all([
           handleUpload(), // Upload file (if selected)
-          // axios.post("http://localhost:8000/chat", { prompt: input }).then((response) => {
-          //   setMessages((prev) => [
-          //     ...prev,
-          //     { text: response.data.message, sender: "bot" },
-          //   ]);
-          // }),
           axios
             .post("http://localhost:8000/chat", { prompt: input })
             .then((response) => {
               // console.log(
-              //   "API Response:",
+              //   ">>> api response:",
               //   response.data.message.content[0].text
               // ); // Log the actual API response
 
               // Extract the bot's reply text from the response object
-              const botReply = response.data.message.content[0].text;
+              const botReply = response.data?.message?.content?.[0]?.text || "Unexpected response format";
 
               setMessages((prev) => [
                 ...prev,
@@ -78,7 +72,7 @@ const Chatbox: React.FC = () => {
 
   return (
     <div className="h-screen bg-gray-900 w-full relative">
-      <div className="h-screen flex flex-col bg-gray-900 text-white w-full px-4 md:px-32 relative container mx-auto">
+      <div className="h-screen flex flex-col bg-gray-900 text-white max-w-5xl w-full relative mx-auto">
         {/* Header */}
         <div className="p-5 border-b border-gray-700 flex justify-between items-center">
           <h1 className="text-lg font-semibold">Cohere ChatBOT</h1>
@@ -109,7 +103,7 @@ const Chatbox: React.FC = () => {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto py-4 px-8 space-y-4">
           {messages.map((msg, idx) => (
             <Message key={idx} text={msg.text} sender={msg.sender} />
           ))}
@@ -117,18 +111,21 @@ const Chatbox: React.FC = () => {
 
         {/* Floating Input Bar */}
         <div className="absolute bottom-5 left-0 w-full flex flex-col items-center px-4">
-          <div className="p-3 border border-gray-600 rounded-xl shadow-lg bg-gray-800 flex items-center md:space-x-1 space-x-2 max-w-3xl w-full md:w-4/5 lg:w-3/5 md:text-sm">
-          <FileUpload selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
+          <div className="p-2.5 border border-gray-600 rounded-xl shadow-lg bg-gray-800 flex items-center md:space-x-1 space-x-2 max-w-3xl w-full md:w-4/5 lg:w-4/5 md:text-xs">
+            <FileUpload
+              selectedFile={selectedFile}
+              setSelectedFile={setSelectedFile}
+            />
 
             {/* Auto-Expanding Textarea */}
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything..."
-              className="flex-1 p-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 outline-none resize-none overflow-hidden min-h-[40px] max-h-[120px] text-sm"
+              className="flex-1 px-4 py-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 outline-none resize-none overflow-hidden max-h-[120px] text-xs"
               rows={1}
               style={{
-                height: input.length > 40 ? "auto" : "40px",
+                height: input.length > 40 ? "auto" : "31.99px",
               }}
             />
 
@@ -141,7 +138,18 @@ const Chatbox: React.FC = () => {
           </div>
 
           {/* Footer */}
-          <p className="text-gray-400 text-xs mt-2">Powered by Cohere API</p>
+          <p className="text-gray-400 text-xs mt-2">
+            Rohit Roy | 2025 |{" "}
+            <a
+              href="https://github.com/rohitroy-github/cohere-ai-chatbot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              GitHub
+            </a>{" "}
+            | Powered by Cohere API
+          </p>
         </div>
       </div>
     </div>

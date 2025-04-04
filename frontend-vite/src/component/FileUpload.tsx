@@ -24,6 +24,14 @@ const FileUpload: React.FC<FileUploadProps> = ({
     if (fileInput) fileInput.value = "";
   };
 
+  // Trim file name if it's too long
+  const getTrimmedFileName = (name: string, maxLength = 15) => {
+    if (name.length <= maxLength) return name;
+    const extIndex = name.lastIndexOf(".");
+    const ext = extIndex !== -1 ? name.slice(extIndex) : "";
+    return `${name.slice(0, maxLength - ext.length)}...${ext}`;
+  };
+
   return (
     <div className="flex items-center space-x-2">
       <input
@@ -38,7 +46,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
         htmlFor="file-upload"
         className="bg-gray-700 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-600"
       >
-        {selectedFile ? selectedFile.name : "📄 Upload PDF"}
+        {selectedFile ? getTrimmedFileName(selectedFile.name) : "📄 Upload PDF"}
         {selectedFile && (
           <>
             <button

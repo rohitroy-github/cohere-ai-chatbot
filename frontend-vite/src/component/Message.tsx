@@ -9,7 +9,7 @@ const Message: React.FC<MessageProps> = ({ text, sender }) => {
   return (
     <div className={`flex ${sender === "user" ? "justify-end" : "justify-start"} w-full`}>
       <div
-        className={`p-3 rounded-lg shadow-md max-w-xs md:max-w-md lg:max-w-lg ${
+        className={`p-2.5 rounded-lg shadow-md max-w-xs md:max-w-md lg:max-w-lg text-xs ${
           sender === "user"
             ? "bg-blue-500 text-white"
             : "bg-gray-700 text-gray-200"
