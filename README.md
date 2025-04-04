@@ -2,6 +2,8 @@
 
 **Cohere Chatbot** is a FastAPI-based chatbot application that integrates Cohere's AI API to generate intelligent responses. It maintains a short-term conversation history for a more contextual chat experience.
 
+**This app can be tested locally !**
+
 ---
 
 ## Features
@@ -16,7 +18,6 @@
 ---
 
 ## Snapshots
-
 
 | ![Macbook-Air-localhost](https://github.com/user-attachments/assets/a1e4c9ac-c186-40c8-8ee5-5afe6bc5f82e) | ![Macbook-Air-localhost (1)](https://github.com/user-attachments/assets/93199e44-daf1-434f-a29d-8c523bb83ea4) |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -42,3 +43,22 @@
 - **FastAPI**: Installed  
 - **Cohere API Key**: Get from [Cohere's official website](https://cohere.com/)  
 - **Postman or Curl**: To test API requests  
+
+---
+
+## Installation
+
+### Running the main server
+```sh
+uvicorn app:app --reload --host 127.0.0.1 --port 8000
+```
+
+### Running the chat client (on the terminal)
+```sh
+python chat_terminal.py
+```
+
+### Running the frontend (frontend application / Chatbot)
+```sh
+npm run dev
+```
