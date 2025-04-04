@@ -17,9 +17,10 @@
 
 ## Snapshots
 
-| ![image](https://user-images.githubusercontent.com/68563695/226727488-a623230a-3015-4b4d-88ea-83027651a59b.JPG) | ![image](https://user-images.githubusercontent.com/68563695/189517297-777899f1-2abd-462d-9848-65d098bec292.png) |
+
+| ![Macbook-Air-localhost](https://github.com/user-attachments/assets/a1e4c9ac-c186-40c8-8ee5-5afe6bc5f82e) | ![Macbook-Air-localhost (1)](https://github.com/user-attachments/assets/93199e44-daf1-434f-a29d-8c523bb83ea4) |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| ![dummy-image](https://via.placeholder.com/350) | ![dummy-image](https://via.placeholder.com/350) |
+| ![Macbook-Air-localhost (2)](https://github.com/user-attachments/assets/79afceac-6a50-4d73-97dc-6d6c531ed279) |  |
 
 ---
 
