@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FileUpload from "./FileUpload";
 import Message from "./Message";
 import axios from "axios";
-import { uploadPDF } from "../api/api";  // Import upload function
+import { uploadPDF } from "../api/api";
 
 type MessageType = {
   text: string;
@@ -18,6 +18,7 @@ const Chatbox: React.FC = () => {
   const handleUpload = async () => {
     if (selectedFile) {
       await uploadPDF(selectedFile);
+      console.log(">>> file uploaded:", selectedFile);
       setSelectedFile(null);
     }
   };
@@ -31,18 +32,37 @@ const Chatbox: React.FC = () => {
     if (isTestingMode) {
       setMessages((prev) => [
         ...prev,
-        { text: "Testing mode is enabled, so it's not me talking :))", sender: "bot" },
+        {
+          text: "Testing mode is enabled, so it's not me talking :))",
+          sender: "bot",
+        },
       ]);
     } else {
       try {
         await Promise.all([
           handleUpload(), // Upload file (if selected)
-          axios.post("http://localhost:8000/chat", { prompt: input }).then((response) => {
-            setMessages((prev) => [
-              ...prev,
-              { text: response.data.message, sender: "bot" },
-            ]);
-          }),
+          // axios.post("http://localhost:8000/chat", { prompt: input }).then((response) => {
+          //   setMessages((prev) => [
+          //     ...prev,
+          //     { text: response.data.message, sender: "bot" },
+          //   ]);
+          // }),
+          axios
+            .post("http://localhost:8000/chat", { prompt: input })
+            .then((response) => {
+              // console.log(
+              //   "API Response:",
+              //   response.data.message.content[0].text
+              // ); // Log the actual API response
+
+              // Extract the bot's reply text from the response object
+              const botReply = response.data.message.content[0].text;
+
+              setMessages((prev) => [
+                ...prev,
+                { text: botReply, sender: "bot" },
+              ]);
+            }),
         ]);
       } catch (error) {
         console.error("Error:", error);
@@ -98,7 +118,7 @@ const Chatbox: React.FC = () => {
         {/* Floating Input Bar */}
         <div className="absolute bottom-5 left-0 w-full flex flex-col items-center px-4">
           <div className="p-3 border border-gray-600 rounded-xl shadow-lg bg-gray-800 flex items-center md:space-x-1 space-x-2 max-w-3xl w-full md:w-4/5 lg:w-3/5 md:text-sm">
-            <FileUpload />
+          <FileUpload selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
 
             {/* Auto-Expanding Textarea */}
             <textarea
