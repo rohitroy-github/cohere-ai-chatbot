@@ -6,6 +6,7 @@ from io import BytesIO  # Handle in-memory file processing
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
+from uuid import uuid4
 
 # Load API key from .env file
 load_dotenv()
@@ -99,3 +100,17 @@ def chat_response(data: Prompt):
     chat_history.append(bot_response)
 
     return response.dict()  # Converts response object to a dictionary
+
+@app.get("/chat-history")
+def get_chat_history():
+    formatted_history = []
+    
+    for i in range(0, len(chat_history) - 1, 2):  # Iterate in pairs
+        if chat_history[i]["role"] == "user" and chat_history[i + 1]["role"] == "assistant":
+            formatted_history.append({
+                "id": str(uuid4()),  # Generate unique ID
+                "user": chat_history[i]["content"],
+                "assistant": chat_history[i + 1]["content"]
+            })
+    
+    return {"chat_history": formatted_history}
